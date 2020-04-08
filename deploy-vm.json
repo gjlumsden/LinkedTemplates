@@ -195,7 +195,10 @@
 						"value": "[variables('nicName')]"
 					},
 					"ipAddress": {
-						"value": "[reference(variables('nicName')).privateIPAddress]"
+						"value": "[reference(variables('nicName')).ipConfigurations[0].privateIPAddress]"
+					},
+					"subnetId":{
+						"value": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
 					}
 				}
 			}
